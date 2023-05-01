@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Rating from './Rating'
@@ -7,15 +6,19 @@ import Rating from './Rating'
 const Product = (props) => {
   return (
     <Card className='my-3 p-3 rounded'>
-      <a href={`/product/${props.product._id}`}>
+      {/* standrd link anchor */}
+      {/* <a href={`/product/${props.product._id}`}> */}
+
+      {/* react-router anchor - will make single page routing without refresh */}
+      <Link to={`/product/${props.product._id}`}>
         <Card.Img src={props.product.image} variant='top' />
-      </a>
+      </Link>
       <Card.Body>
-        <a href={`/product/${props.product._id}`}>
+        <Link to={`/product/${props.product._id}`}>
           <Card.Title as='div'>
             <strong>{props.product.name}</strong>
           </Card.Title>
-        </a>
+        </Link>
         {/* <Card.Text as='div'>
           <div className='my-3'>
             {props.product.rating} from {props.product.numReviews}
