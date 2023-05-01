@@ -1,0 +1,22 @@
+{
+  "name": "mern-proshop",
+  "version": "1.0.0",
+  "description": "mern ecommerce",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/server",
+    "server": "nodemon backend/server",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "adam ap",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^8.0.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
