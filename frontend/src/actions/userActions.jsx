@@ -4,6 +4,7 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
 } from '../constants/userConstant'
+axios.defaults.baseURL = 'http://localhost:5000'
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -16,7 +17,7 @@ export const login = (email, password) => async (dispatch) => {
       },
     }
     const { data } = await axios.post(
-      '/api/user/login',
+      '/api/users/login',
       { email, password },
       config
     )
