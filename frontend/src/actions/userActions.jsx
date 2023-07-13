@@ -13,7 +13,9 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
+  USER_DETAILS_RESET,
 } from '../constants/userConstant'
+import { ORDER_MY_LIST_RESET } from '../constants/orderConstant'
 axios.defaults.baseURL = 'http://localhost:5000'
 
 export const login = (email, password) => async (dispatch) => {
@@ -151,4 +153,6 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo')
   dispatch({ type: USER_LOGOUT })
+  dispatch({ type: USER_DETAILS_RESET })
+  dispatch({ type: ORDER_MY_LIST_RESET })
 }

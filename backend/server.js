@@ -6,6 +6,7 @@ import connectDB from './config/db.js'
 // import products from './data/product.js'
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 dotenv.config()
@@ -21,6 +22,10 @@ app.get('/test', (req, res) => {
 
 app.use('/api/products', productRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/orders', orderRoutes)
+app.use('/api/config/paypal', (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID)
+})
 // direct routes
 // app.get('/api/products', (req, res) => {
 //   //convert array object to json
