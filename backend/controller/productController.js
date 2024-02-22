@@ -13,6 +13,7 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route   GET /api/products/:id
 // @access  Public
 const getProductById = asyncHandler(async (req, res) => {
+  console.log(req.params)
   const product = await Product.findById(req.params.id)
   if (product) {
     res.json(product)
@@ -28,7 +29,7 @@ const getProductById = asyncHandler(async (req, res) => {
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id)
   if (product) {
-    await product.deleteOne() //remove deprecated
+    await product.deleteOne() //remove() deprecated
     res.json({ message: 'product removed' })
   } else {
     throw new Error('Product Not found')
