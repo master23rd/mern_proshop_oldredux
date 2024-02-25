@@ -52,10 +52,9 @@ app.use('/api/config/paypal', (req, res) => {
 //   next(error)
 // })
 
-const __dirname = path.resolve()
-
 //dirname only work on es modules not common js
-//use local storage for image
+//use current storage for image
+const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
 app.use(notFound)

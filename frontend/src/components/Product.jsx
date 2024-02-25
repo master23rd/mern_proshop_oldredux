@@ -11,6 +11,7 @@ const Product = (props) => {
 
       {/* react-router anchor - will make single page routing without refresh */}
       <Link to={`/product/${props.product._id}`}>
+        {/* this image only get from root fe/public/ folder */}
         <Card.Img src={props.product.image} variant='top' />
       </Link>
       <Card.Body>
