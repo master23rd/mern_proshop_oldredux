@@ -42,6 +42,7 @@ const reducer = combineReducers({
   orderPay: orderPayReducer,
   orderListMy: orderListMyReducer,
   orderList: orderListReducer,
+  orderDeliver: orderDetailReducer,
   userList: userListeReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
