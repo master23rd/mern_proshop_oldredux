@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import {
   listProductDetails,
   createProductReview,
@@ -11,7 +12,6 @@ import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstant'
 import Rating from '../components/Rating'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 
 // import products from '../products'
 // import axios from 'axios'
@@ -35,7 +35,7 @@ const ProductScreen = () => {
   // const product = products.find((p) => p._id === id)
   // console.log(product)
 
-  const productReviewCreate = useSelector((state) => state.productDetail)
+  const productReviewCreate = useSelector((state) => state.productReviewCreate)
   const { success: succesProductReview, error: errorProductReview } =
     productReviewCreate
 
@@ -49,7 +49,7 @@ const ProductScreen = () => {
       alert('review submited')
       setRating(0)
       setComment('')
-      dispatch({ type: 'PRODUCT_CREATE_REVIEW_RESET' })
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
     }
     // local state
     // const fetchProduct = async () => {
