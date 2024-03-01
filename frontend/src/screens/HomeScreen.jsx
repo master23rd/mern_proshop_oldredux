@@ -6,9 +6,11 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Product from '../components/Product'
 import { listProducts } from '../actions/productActions'
+import { useParams } from 'react-router-dom'
 // import axios from 'axios'
 
 const HomeScreen = () => {
+  const { keyword } = useParams()
   // const [products, setProducts] = useState([])
   const dispatch = useDispatch()
   const productList = useSelector((state) => state.productList)
@@ -23,8 +25,8 @@ const HomeScreen = () => {
     // fetchProducts()
 
     //using reducer
-    dispatch(listProducts())
-  }, [dispatch])
+    dispatch(listProducts(keyword))
+  }, [dispatch, keyword])
 
   //for testing before using useSelector
   // const products = []

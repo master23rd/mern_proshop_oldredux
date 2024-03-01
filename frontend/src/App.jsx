@@ -19,6 +19,7 @@ import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
+import SearchBox from './components/SearchBox'
 
 //function App() {
 const App = () => {
@@ -45,13 +46,14 @@ const App = () => {
             <Route path='/register' element={<RegisterScreen />} />
             <Route path='/profile' element={<ProfileScreen />} />
             {/* route v.6 */}
-            <Route path='/' element={<HomeScreen />} exact />
             <Route path='/product/:id' element={<ProductScreen />} />
             <Route path='/cart/:id?' element={<CartScreen />} />
             <Route path='/shipping' element={<ShippingScreen />} />
             <Route path='/payment' element={<PaymentScreen />} />
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
             <Route path='/order/:id' element={<OrderScreen />} />
+            <Route path='/search/:keyword' element={<HomeScreen />} />
+            <Route path='/' element={<HomeScreen />} exact />
 
             {/** admmin user */}
             <Route path='/admin/userList' element={<UserListScreen />} />
