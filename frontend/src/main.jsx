@@ -11,9 +11,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   //   <App />
   // </React.StrictMode>
 
-  // <React.StrictMode>
-  <Provider store={store}>
-    <App />
-  </Provider>
-  // </React.StrictMode>
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 )

@@ -7,7 +7,6 @@ import { logout } from '../actions/userActions'
 import SearchBox from './SearchBox'
 
 const Header = () => {
-  const navigate = useNavigate()
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin

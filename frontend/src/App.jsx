@@ -42,6 +42,12 @@ const App = () => {
           <Routes>
             {/* route v.5 */}
             {/* <Route path='/' Component={HomeScreen} /> */}
+            <Route path='/' element={<HomeScreen />} index={true} />
+            <Route path='/page/:pageNumber?' element={<HomeScreen />} />
+            <Route
+              path='/search/:keyword?/page/:pageNumber?'
+              element={<HomeScreen />}
+            />
             <Route path='/login' element={<LoginScreen />} />
             <Route path='/register' element={<RegisterScreen />} />
             <Route path='/profile' element={<ProfileScreen />} />
@@ -53,7 +59,6 @@ const App = () => {
             <Route path='/placeorder' element={<PlaceOrderScreen />} />
             <Route path='/order/:id' element={<OrderScreen />} />
             <Route path='/search/:keyword' element={<HomeScreen />} />
-            <Route path='/' element={<HomeScreen />} exact />
 
             {/** admmin user */}
             <Route path='/admin/userList' element={<UserListScreen />} />
@@ -62,6 +67,11 @@ const App = () => {
             <Route
               path='/admin/product/:productId/edit'
               element={<ProductEditScreen />}
+            />
+            <Route
+              path='/admin/productList/:pageNumber'
+              element={<ProductListScreen />}
+              exact
             />
             <Route path='/admin/orderlist' element={<OrderListScreen />} />
           </Routes>

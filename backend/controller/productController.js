@@ -5,7 +5,11 @@ import asyncHandler from 'express-async-handler'
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  // get ? keyword on url
+  //add pagination
+  const pageSize = 5
+  const page = Number(req.query.pageNumber) || 1
+
+  // get query (/url?keyword=)  keyword on url
   const keyword = req.query.keyword
     ? {
         name: {
@@ -14,8 +18,12 @@ const getProducts = asyncHandler(async (req, res) => {
         },
       }
     : {}
+
+  const count = await Product.countDocuments({ ...keyword })
   const products = await Product.find({ ...keyword })
-  res.json(products)
+    .limit(pageSize) // quantity of items (cth: pagesize=5, page=1)
+    .skip(pageSize * (page - 1)) //get offset or next index after quantity pagesize (5 * (1-1) > start from 0(page1), start from 5(page2), start 10(page3))
+  res.json({ products, page, pages: Math.ceil(count / pageSize) })
 })
 
 // @desc    Fetch detail product
