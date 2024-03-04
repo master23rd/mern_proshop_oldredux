@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { listProducts } from '../actions/productActions'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 // import products from '../products'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
 import Product from '../components/Product'
 import Paginate from '../components/Paginate'
+import ProductCarousel from '../components/ProductCarousel'
+import Meta from '../components/Meta'
 // import axios from 'axios'
 
 const HomeScreen = () => {
@@ -36,6 +38,14 @@ const HomeScreen = () => {
 
   return (
     <>
+      <Meta />
+      {!keyword ? (
+        <ProductCarousel />
+      ) : (
+        <Link to='/' className='btn btn-light'>
+          Back
+        </Link>
+      )}
       <h1>latest product</h1>
       {loading ? (
         <Loader />
@@ -44,7 +54,7 @@ const HomeScreen = () => {
       ) : (
         <>
           <Row>
-            {products.map((product) => (
+            {products?.map((product) => (
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 {/* <h3>{product.name}</h3> */}
                 <Product product={product} />

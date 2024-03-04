@@ -7,6 +7,7 @@ import {
   deleteProduct,
   getProductById,
   getProducts,
+  getTopProducts,
   updateProduct,
 } from '../controller/productController.js'
 import { protect, admin } from '../middleware/authMiddleware.js'
@@ -23,6 +24,7 @@ router.route('/').get(getProducts).post(protect, admin, createProduct)
 // @route   GET /api/products/:id
 // @access  public
 
+router.route('/top').get(getTopProducts)
 router
   .route('/:id')
   .get(getProductById)
