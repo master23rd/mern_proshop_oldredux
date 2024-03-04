@@ -63,6 +63,19 @@ app.use('/api/config/paypal', (req, res) => {
 const __dirname = path.resolve()
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')))
 
+if (process.env.NODE_ENV === 'production') {
+  // notes here
+  // run react full with be based on single project
+  app.use(express.static(path.join(__dirname, '/frontend/dist')))
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'))
+  })
+} else {
+  app.get('/', (req, res) => {
+    res.send('api is running')
+  })
+}
+
 app.use(notFound)
 app.use(errorHandler)
 

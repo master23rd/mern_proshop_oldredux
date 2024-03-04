@@ -14,6 +14,9 @@ dist-ssr
 *.local
 frontend/public/images/
 
+# production
+/frontend/dist
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
